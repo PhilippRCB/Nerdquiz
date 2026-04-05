@@ -9,7 +9,7 @@
     <table>
         <tr th:each="kategorie : ${kategorien}">
             <th th:text="${kategorie.kategorieName}"></th>
-            <td th:each="frage : ${kategorie.fragen}" th:text="${frage.punkte}"></td>
+            <td th:each="frage : ${kategorie.fragen}" th:style="*{frage.beantwortet} ? 'background-color:#FFFFFF' : 'background-color:#000000'" th:text="${frage.punkte}"></td>
         </tr>
     </table>
 </body>
