@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <h1>Quizmaster-Controls</h1>
+    <h2 th:text="${kategorie} +': ' + ${punkte}"></h2>
+    <p th:text="${frage}"></p>
+    <p th:text="'Antwort: ' + ${antwort}"></p>
+    <hr />
+    <p th:text="'Team: ' + ${teamName}"></p>
+    <hr />
+    <form action="#" th:action="@{/admin/right}" method="post">
+        <button type="submit">Korrekt</button>
+    </form>
+    <form action="#" th:action="@{/admin/wrong}" method="post">
+        <button type="submit">Falsch</button>
+    </form>
+
+    <form action="#" th:action="@{/admin/back}" method="post">
+        <button type="submit">Zurück</button>
+    </form>
+</body>
+</html>

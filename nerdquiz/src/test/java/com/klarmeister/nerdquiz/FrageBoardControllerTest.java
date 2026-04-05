@@ -1,7 +1,7 @@
 package com.klarmeister.nerdquiz;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,14 +16,14 @@ public class FrageBoardControllerTest {
 
     @BeforeEach
     public void setup() {
-        FrageKategorie kategorie1 = new FrageKategorie("Mathematik",Map.of( 
-                100, new Frage(100, "Was ist 2+2?", "4", "", "", false),
-                200, new Frage(200,"Was ist 3x3?", "9",  "", "", false)
+        FrageKategorie kategorie1 = new FrageKategorie("Mathematik",List.of( 
+                new Frage(100, "Was ist 2+2?", "4", "", "", false),
+                new Frage(200,"Was ist 3x3?", "9",  "", "", false)
         ));
 
-        FrageKategorie kategorie2 = new FrageKategorie("Früchte", Map.of(
-                100, new Frage(100, "Welche Farbe hat ein Apfel?", "Rot", "", "", false),
-                200, new Frage(200, "Welche Farbe hat eine Birne?", "Grün", "", "", false)
+        FrageKategorie kategorie2 = new FrageKategorie("Früchte", List.of(
+                new Frage(100, "Welche Farbe hat ein Apfel?", "Rot", "", "", false),
+                new Frage(200, "Welche Farbe hat eine Birne?", "Grün", "", "", false)
         ) );
 
         frageBoard.kategorien().add(kategorie1);
@@ -42,6 +42,15 @@ public class FrageBoardControllerTest {
         String frageJson = frageBoardController.frage("Mathematik", 100);
         assert frageJson.contains("Was ist 2+2?");
         assert frageJson.contains("\"punkte\":100");    
+    }
+
+    @Test
+    public void testKonstruktorMitDatei() {
+        FrageBoardController controller = new FrageBoardController();
+        String json = controller.frageBoard();
+        assert json.contains("Mathe");
+        assert json.contains("Obst");
+        assert !controller.getFrageBoard().kategorien().isEmpty();
     }
 
 }

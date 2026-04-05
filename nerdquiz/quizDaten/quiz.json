@@ -1,0 +1,50 @@
+{
+    "kategorien":
+    [
+        {
+            "kategorieName":"Mathe",
+            "fragen":
+                [
+                    {
+                        "punkte":100,
+                        "frage":"Was ist 2+2?",
+                        "antwort":"4",
+                        "bildFrage":"",
+                        "bildAntwort":"",
+                        "beantwortet":false
+                    },
+                    {
+                        "punkte":200,
+                        "frage":"Was ist 3x3?",
+                        "antwort":"9",
+                        "bildFrage":"",
+                        "bildAntwort":"",
+                        "beantwortet":false
+                    }   
+        ]
+            
+        },
+        {
+            "kategorieName":"Obst",
+            "fragen":
+                [
+                    {
+                        "punkte":100,
+                        "frage":"Welche Farbe hat ein Apfel?",
+                        "antwort":"Rot",
+                        "bildFrage":"",
+                        "bildAntwort":"",
+                        "beantwortet":false
+                    },
+                    {
+                        "punkte":200,
+                        "frage":"Welche Farbe hat eine Birne?",
+                        "antwort":"Grün",
+                        "bildFrage":"",
+                        "bildAntwort":"",
+                        "beantwortet":false
+                    }
+                ]
+        }
+    ]
+}

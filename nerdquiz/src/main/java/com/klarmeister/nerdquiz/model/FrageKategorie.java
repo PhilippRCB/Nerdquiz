@@ -1,7 +1,7 @@
 package com.klarmeister.nerdquiz.model;
 
-import java.util.Map;
+import java.util.List;
 
-public record FrageKategorie(String kategorieName, Map<Integer,Frage> fragen) {
+public record FrageKategorie(String kategorieName, List<Frage> fragen) {
 
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <h1>Nerdquiz</h1>
+    <table>
+        <tr th:each="kategorie : ${kategorien}">
+            <th th:text="${kategorie.kategorieName}"></th>
+            <td th:each="frage : ${kategorie.fragen}" th:text="${frage.punkte}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
-
 import com.klarmeister.nerdquiz.model.Frage;
 import com.klarmeister.nerdquiz.model.FrageBoard;
 

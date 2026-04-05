@@ -6,10 +6,10 @@
 </head>
 <body>
     <h1>Willkommen zum Quiz!</h1>
-    <p th:text="'Hallo ' + ${name} + '!'"></p>
+    <p th:text="'Buzzer für Team ' + ${name} + '!'"></p>
 
     <form action="#" th:action="@{/buzzer/buzz}" method="post">
-        <input type="text" name="teamName" placeholder="Gib deinen Namen ein" required>
+        <input type="text" name="teamName" placeholder="Gib deinen Namen ein" required maxlength="25">
         <button type="submit">Buzzer</button>
     </form>
 </body>
