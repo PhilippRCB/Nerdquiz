@@ -1,4 +1,4 @@
-package com.klarmeister.nerdquiz;
+package com.klarmeister.nerdquiz.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,11 +38,14 @@ public class FrageBoardController {
         return new Gson().toJson(frageBoard);
     }
 
-    public String frage(String kategorie, int frageNummer) {
+    public String frageNachPunkten(String kategorie, int fragePunkte) {
         for (var kategorieEintrag : frageBoard.kategorien()) {
             if (kategorieEintrag.kategorieName().equals(kategorie)) {
-                Frage frage = kategorieEintrag.fragen().get(frageNummer);
-                return new Gson().toJson(frage);
+                for (var frage: kategorieEintrag.fragen()) {
+                    if (frage.punkte() == fragePunkte) {
+                        return new Gson().toJson(frage);
+                    }
+                }
             }
         }
         return new Gson().toJson(new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", false));

@@ -1,4 +1,4 @@
-package com.klarmeister.nerdquiz;
+package com.klarmeister.nerdquiz.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class FrageBoardControllerTest {
 
     @Test
     public void testGetFrage() {
-        String frageJson = frageBoardController.frage("Mathematik", 100);
+        String frageJson = frageBoardController.frageNachPunkten("Mathematik", 100);
         assert frageJson.contains("Was ist 2+2?");
         assert frageJson.contains("\"punkte\":100");    
     }

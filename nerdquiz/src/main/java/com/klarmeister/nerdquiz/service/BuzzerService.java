@@ -1,4 +1,4 @@
-package com.klarmeister.nerdquiz.REST;
+package com.klarmeister.nerdquiz.service;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.klarmeister.nerdquiz.TeamController;
+import com.klarmeister.nerdquiz.controller.TeamController;
 
 @Controller
 public class BuzzerService {

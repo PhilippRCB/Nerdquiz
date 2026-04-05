@@ -1,4 +1,4 @@
-package com.klarmeister.nerdquiz;
+package com.klarmeister.nerdquiz.controller;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
