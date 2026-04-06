@@ -28,7 +28,11 @@ public class QuizMasterService {
     public String quizMaster(Model model) {
         switch (quizStateController.getCurrentQuizState()) {
             case FRAGE: 
-                model.addAttribute("teamName", teamController.getBuzzedTeams().peek());
+                String teamName = teamController.getBuzzedTeams().peek();
+                if (teamName == null) {
+                    teamName = "";
+                }
+                model.addAttribute("teamName", teamName);
                 model.addAttribute("frage", quizStateController.getCurrentFrage());
                 return "questionMaster";
             case BOARD:
