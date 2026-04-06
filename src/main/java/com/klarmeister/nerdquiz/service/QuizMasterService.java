@@ -35,16 +35,30 @@ public class QuizMasterService {
     @PostMapping("/quizMaster/selectFrage")
     public String frageAuswahl(@RequestParam String kategorieName, @RequestParam int fragePunkte, Model model) {
         Frage frage = frageBoardController.frageNachPunkten(kategorieName, fragePunkte);
-        model.addAttribute("kategorieName", kategorieName);
-        model.addAttribute("frage", frage);
-        quizStateController.selectFrage(kategorieName, frage);
-        return "questionMaster";
+        if (frage.isBeantwortet()) {
+            model.addAttribute("kategorien", frageBoardController.getFrageBoard().kategorien());
+            return "tabelleMaster";
+        }
+        else{
+            model.addAttribute("kategorieName", kategorieName);
+            model.addAttribute("frage", frage);
+            quizStateController.selectFrage(kategorieName, frage);
+            return "questionMaster";
+        }
     }
 
     @PostMapping("/quizMaster/right")
     public String frageKorrekt(Model model) {
         Frage frage = quizStateController.getCurrentFrage();
         frage.setBeantwortet(true);
+        model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
+        model.addAttribute("frage", frage);
+        return "questionMaster";
+    }
+
+    @PostMapping("/quizMaster/wrong")
+    public String frageFalsch(Model model) {
+        Frage frage = quizStateController.getCurrentFrage();
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
         model.addAttribute("frage", frage);
         return "questionMaster";

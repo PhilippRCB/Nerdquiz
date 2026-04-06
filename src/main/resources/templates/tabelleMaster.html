@@ -13,7 +13,7 @@
                 <form action="#" th:action="@{/quizMaster/selectFrage}" method="post">
                     <input type="hidden" name="kategorieName" th:value="${kategorie.kategorieName}" />
                     <input type="hidden" name="fragePunkte" th:value="${frage.punkte}" />
-                    <button type="submit" th:text="${frage.punkte}"></button>
+                    <button type="submit" th:style="*{frage.beantwortet} ? 'background-color:#FF0000' : 'background-color:#00FF00'" th:text="${frage.punkte}"></button>
                 </form>
             </td>
         </tr>
