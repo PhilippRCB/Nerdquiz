@@ -39,7 +39,7 @@ public class FrageBoardControllerTest {
 
     @Test
     public void testGetFrage() {
-        String frageJson = frageBoardController.frageNachPunkten("Mathematik", 100);
+        String frageJson = frageBoardController.frageJsonNachPunkten("Mathematik", 100);
         assert frageJson.contains("Was ist 2+2?");
         assert frageJson.contains("\"punkte\":100");    
     }

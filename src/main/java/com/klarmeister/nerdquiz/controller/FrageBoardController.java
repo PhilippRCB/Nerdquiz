@@ -38,16 +38,20 @@ public class FrageBoardController {
         return new Gson().toJson(frageBoard);
     }
 
-    public String frageNachPunkten(String kategorie, int fragePunkte) {
+    public String frageJsonNachPunkten(String kategorie, int fragePunkte) {
+        return new Gson().toJson(frageNachPunkten(kategorie, fragePunkte));
+    }
+
+    public Frage frageNachPunkten(String kategorie, int fragePunkte) {
         for (var kategorieEintrag : frageBoard.kategorien()) {
             if (kategorieEintrag.kategorieName().equals(kategorie)) {
                 for (var frage: kategorieEintrag.fragen()) {
                     if (frage.punkte() == fragePunkte) {
-                        return new Gson().toJson(frage);
+                        return frage;
                     }
                 }
             }
         }
-        return new Gson().toJson(new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", false));
+        return new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", false);
     }
 }

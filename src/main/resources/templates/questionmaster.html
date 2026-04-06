@@ -6,9 +6,9 @@
 </head>
 <body>
     <h1>Quizmaster-Controls</h1>
-    <h2 th:text="${kategorie} +': ' + ${punkte}"></h2>
-    <p th:text="${frage}"></p>
-    <p th:text="'Antwort: ' + ${antwort}"></p>
+    <h2 th:text="${kategorieName} +': ' + ${frage.punkte}"></h2>
+    <p th:text="${frage.frage}"></p>
+    <p th:text="'Antwort: ' + ${frage.antwort}"></p>
     <hr />
     <p th:text="'Team: ' + ${teamName}"></p>
     <hr />

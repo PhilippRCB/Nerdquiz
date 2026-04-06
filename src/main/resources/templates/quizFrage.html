@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <h1>Nerdquiz</h1>
+    <p th:text="'${frage.frage}'"></p>
+    <p th:text="*{frage.beantwortet} ? ${frage.antwort} : ''"></p>
+</body>
+</html>

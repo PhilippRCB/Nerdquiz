@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 import com.klarmeister.nerdquiz.controller.FrageBoardController;
+import com.klarmeister.nerdquiz.controller.QuizStateController;
 import com.klarmeister.nerdquiz.controller.TeamController;
 
 @Configuration
@@ -20,5 +21,11 @@ public class QuizConfig {
     @ApplicationScope
     public FrageBoardController frageBoardController() {
         return new FrageBoardController();
+    }
+
+    @Bean
+    @ApplicationScope
+    public QuizStateController quizStateController() {
+        return new QuizStateController();
     }
 }
