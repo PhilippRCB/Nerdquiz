@@ -9,7 +9,8 @@
     <p th:text="'Buzzer für Team ' + ${name} + '!'"></p>
 
     <form action="#" th:action="@{/buzzer/buzz}" method="post">
-        <input type="text" name="teamName" placeholder="Gib deinen Namen ein" required maxlength="25">
+        <input type="text" th:disabled="${customUser}" th:hidden="${customUser}" name="teamName" placeholder="Gib deinen Namen ein" required maxlength="25">
+        <input type="hidden" th:disabled="${defaultUser}" name="teamName" th:value="${name}" />
         <button type="submit">Buzzer</button>
     </form>
 </body>

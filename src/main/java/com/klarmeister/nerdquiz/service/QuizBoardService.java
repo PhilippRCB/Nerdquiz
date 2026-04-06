@@ -18,7 +18,7 @@ public class QuizBoardService {
     private QuizStateController quizStateController;
     
 
-    @GetMapping("/quizTabelle")
+    @GetMapping("/quizTabelle/")
     public String frageBoard(Model model)  {
         switch (quizStateController.getCurrentQuizState()) {
             case FRAGE: return generiereFrageView(model);
@@ -28,7 +28,7 @@ public class QuizBoardService {
     }
 
     private String generiereFrageView(Model model) {
-        model.addAttribute("frage", frageBoardController);
+        model.addAttribute("frage", quizStateController.getCurrentFrage().toRecord());
         return "quizFrage";
     }
 

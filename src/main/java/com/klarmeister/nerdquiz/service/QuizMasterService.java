@@ -24,7 +24,7 @@ public class QuizMasterService {
     @Autowired
     private TeamController teamController;
 
-    @GetMapping("/quizMaster")
+    @GetMapping("/quizMaster/")
     public String quizMaster(Model model) {
         switch (quizStateController.getCurrentQuizState()) {
             case FRAGE: 
@@ -45,13 +45,13 @@ public class QuizMasterService {
         teamController.getBuzzedTeams().clear();
         if (frage.isBeantwortet()) {
             model.addAttribute("kategorien", frageBoardController.getFrageBoard().kategorien());
-            return "tabelleMaster";
+            return "redirect:/quizMaster/";
         }
         else{
             model.addAttribute("kategorieName", kategorieName);
             model.addAttribute("frage", frage);
             quizStateController.selectFrage(kategorieName, frage);
-            return "questionMaster";
+            return "redirect:/quizMaster/";
         }
     }
 
@@ -61,7 +61,7 @@ public class QuizMasterService {
         frage.setBeantwortet(true);
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
         model.addAttribute("frage", frage);
-        return "questionMaster";
+        return "redirect:/quizMaster/";
     }
 
     @PostMapping("/quizMaster/wrong")
@@ -69,7 +69,7 @@ public class QuizMasterService {
         Frage frage = quizStateController.getCurrentFrage();
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
         model.addAttribute("frage", frage);
-        return "questionMaster";
+        return "redirect:/quizMaster/";
     }
 
     @PostMapping("/quizMaster/returnToBoard")
@@ -82,7 +82,7 @@ public class QuizMasterService {
         } catch (Exception e) {
             System.out.println(String.format("Fehler beim Schreiben der Punktestandsdatei: %s", quizFile.getAbsolutePath()));
         }
-        return "tabelleMaster";
+        return "redirect:/quizMaster/";
     }
 
 }

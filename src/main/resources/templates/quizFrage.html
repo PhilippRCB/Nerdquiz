@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Nerdquiz</h1>
-    <p th:text="'${frage.frage}'"></p>
+    <p th:text="${frage.frage}"></p>
     <p th:text="*{frage.beantwortet} ? ${frage.antwort} : ''"></p>
 </body>
 </html>

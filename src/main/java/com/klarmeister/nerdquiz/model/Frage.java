@@ -1,5 +1,7 @@
 package com.klarmeister.nerdquiz.model;
 
+
+
 public class Frage {
     private final int punkte;
     private final String frage;
@@ -7,6 +9,8 @@ public class Frage {
     private final String bildFrage;
     private final String bildAntwort;
     private boolean beantwortet;
+
+    public record FrageRecord   (int punkte, String frage, String antwort, String bildFrage, String bildAntwort, boolean beantwortet) {}   
 
     public Frage(int punkte, String frage, String antwort, String bildFrage, String bildAntwort, boolean beantwortet) {
         this.punkte = punkte;
@@ -43,5 +47,9 @@ public class Frage {
 
     public void setBeantwortet(boolean beantwortet) {
         this.beantwortet = beantwortet;
+    }
+
+    public FrageRecord toRecord() {
+        return new FrageRecord(punkte, frage, antwort, bildFrage, bildAntwort, beantwortet);
     }
 }
