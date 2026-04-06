@@ -1,0 +1,84 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+h1 {
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 0.35rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+button:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}
+
+button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+table {
+    display: table;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #3498db;
+    color: white;
+}
+
+table th {
+    padding: 1.2rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.95rem;
+    border: 1px solid #dee2e6;
+}
+
+table td {
+    padding: 1.2rem 1rem;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.2s ease;
+}
+
+table tr {
+    display: table-row;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" th:href="@{/css/standingStyle.css}" />
+</head>
+<body>
+    <h1>Nerdquiz</h1>
+    <h2>Aktueller Punktestand</h2>
+    <table>
+        <tr>
+            <th>Team</th>
+            <th>Punkte</th>
+        </tr>
+        <tr th:each="team : ${teams}">
+            <td th:text="${team.key}"></td>
+            <td th:text="${team.value}"></td>
+        </tr>
+    </table>
+</body>
+</html>

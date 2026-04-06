@@ -20,6 +20,10 @@ public class TeamController {
         teams.put(teamName, teams.getOrDefault(teamName, 0) + punkte);
     }
 
+    public synchronized Map<String, Integer> getTeams() {
+        return teams;
+    }
+
     public String getTeamStand() {
         return new Gson().toJson(teams);
     }
