@@ -24,12 +24,11 @@ public class QuizBoardService {
             case FRAGE: return generiereFrageView(model);
             case BOARD: 
             default: return generiereQuizTabelleView(model);
-
         }
     }
 
     private String generiereFrageView(Model model) {
-        model.addAttribute("frage", quizStateController.getCurrentFrage());
+        model.addAttribute("frage", frageBoardController);
         return "quizFrage";
     }
 

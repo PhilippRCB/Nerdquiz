@@ -46,7 +46,7 @@ public class FrageBoardController {
         for (var kategorieEintrag : frageBoard.kategorien()) {
             if (kategorieEintrag.kategorieName().equals(kategorie)) {
                 for (var frage: kategorieEintrag.fragen()) {
-                    if (frage.punkte() == fragePunkte) {
+                    if (frage.getPunkte() == fragePunkte) {
                         return frage;
                     }
                 }

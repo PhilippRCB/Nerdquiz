@@ -26,4 +26,8 @@ public class QuizStateController {
     public synchronized void returnToBoard() {
         quizStateMachine = new QuizStateMachine(QuizState.BOARD, null, null);
     }
+
+    public QuizStateMachine getQuizStateMachine() {
+        return quizStateMachine;
+    }
 }

@@ -6,20 +6,20 @@
 </head>
 <body>
     <h1>Quizmaster-Controls</h1>
-    <h2 th:text="${kategorieName} +': ' + ${frage.punkte}"></h2>
+    <h2 th:text="${frage.punkte}"></h2>
     <p th:text="${frage.frage}"></p>
     <p th:text="'Antwort: ' + ${frage.antwort}"></p>
     <hr />
     <p th:text="'Team: ' + ${teamName}"></p>
     <hr />
-    <form action="#" th:action="@{/admin/right}" method="post">
+    <form action="#" th:action="@{/quizMaster/right}" method="post">
         <button type="submit">Korrekt</button>
     </form>
-    <form action="#" th:action="@{/admin/wrong}" method="post">
+    <form action="#" th:action="@{/quizMaster/wrong}" method="post">
         <button type="submit">Falsch</button>
     </form>
 
-    <form action="#" th:action="@{/admin/back}" method="post">
+    <form action="#" th:action="@{/quizMaster/returnToBoard}" method="post">
         <button type="submit">Zurück</button>
     </form>
 </body>
