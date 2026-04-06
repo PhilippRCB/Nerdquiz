@@ -11,7 +11,7 @@ import com.klarmeister.nerdquiz.model.FrageBoard;
 public class FrageBoardController {
 
     private FrageBoard frageBoard;
-    private String quizDatei = "quizDaten/quiz.json";
+    private String quizDatei = "quiz.json";
 
     public FrageBoardController() {
         File quizFile = new File(quizDatei);
