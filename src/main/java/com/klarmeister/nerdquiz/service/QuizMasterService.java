@@ -58,7 +58,13 @@ public class QuizMasterService {
     @PostMapping("/quizMaster/right")
     public String frageKorrekt(Model model) {
         Frage frage = quizStateController.getCurrentFrage();
-        frage.setBeantwortet(true);
+        if (!frage.isBeantwortet()) {
+            String teamName = teamController.getBuzzedTeams().poll();
+            if (teamName != null) {
+                teamController.addPunkte(teamName, frage.getPunkte());
+                frage.setBeantwortet(true);
+            }
+        }
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
         model.addAttribute("frage", frage);
         return "redirect:/quizMaster/";
@@ -67,6 +73,12 @@ public class QuizMasterService {
     @PostMapping("/quizMaster/wrong")
     public String frageFalsch(Model model) {
         Frage frage = quizStateController.getCurrentFrage();
+        if (!frage.isBeantwortet()) {
+            String teamName = teamController.getBuzzedTeams().poll();
+            if (teamName != null) {
+                teamController.addPunkte(teamName, frage.getPunkte() * -1);
+            }
+        }
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
         model.addAttribute("frage", frage);
         return "redirect:/quizMaster/";
