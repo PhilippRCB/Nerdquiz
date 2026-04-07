@@ -8,5 +8,7 @@
     <h1>Nerdquiz</h1>
     <h2 th:text="${frage.frage}"></h2>
     <h3 th:text="*{frage.beantwortet} ? ${frage.antwort} : ''"></h3>
+    <img th:if="${not (frage.bildFrage.isBlank() || frage.beantwortet)}" th:src="@{${frage.bildFrage}}" th:alt-title="${frage.frage}" />
+    <img th:if="${not frage.bildAntwort.isBlank() && frage.beantwortet}" th:src="@{${frage.bildAntwort}}" th:alt-title="${frage.antwort}" />
 </body>
 </html>
