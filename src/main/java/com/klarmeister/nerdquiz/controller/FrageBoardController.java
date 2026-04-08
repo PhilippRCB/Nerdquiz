@@ -7,8 +7,7 @@ import com.klarmeister.nerdquiz.model.FrageBoard;
 public class FrageBoardController {
 
     private FrageBoard frageBoard;
-    private String quizDatei = "quiz.json";
-    private static final String demoQuiz = 
+    private static final String DEMO_QUIZ = 
                 """
                 {
                     "kategorien":
@@ -63,7 +62,7 @@ public class FrageBoardController {
     ;
 
     public FrageBoardController() {
-        frageBoard = new Gson().fromJson(demoQuiz, FrageBoard.class);
+        frageBoard = new Gson().fromJson(DEMO_QUIZ, FrageBoard.class);
     }
 
     public FrageBoardController(FrageBoard frageBoard) {
@@ -74,10 +73,14 @@ public class FrageBoardController {
         return frageBoard;
     }
 
-    public String frageBoard() {
-        return new Gson().toJson(frageBoard);
+    public void setFrageBoard(FrageBoard frageBoard) {
+        this.frageBoard = frageBoard;
     }
 
+    public String frageBoardToJson() {
+        return new Gson().toJson(frageBoard);
+    }
+    
     public String frageJsonNachPunkten(String kategorie, int fragePunkte) {
         return new Gson().toJson(frageNachPunkten(kategorie, fragePunkte));
     }
@@ -94,4 +97,5 @@ public class FrageBoardController {
         }
         return new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", false);
     }
+
 }

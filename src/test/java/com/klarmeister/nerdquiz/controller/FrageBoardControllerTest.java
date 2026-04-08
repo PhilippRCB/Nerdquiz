@@ -32,7 +32,7 @@ public class FrageBoardControllerTest {
 
     @Test
     public void testGetFrageBoard() {
-        String json = frageBoardController.frageBoard();
+        String json = frageBoardController.frageBoardToJson();
         assert json.contains("Mathematik");
         assert json.contains("Früchte");
     }
@@ -47,7 +47,7 @@ public class FrageBoardControllerTest {
     @Test
     public void testKonstruktorMitDatei() {
         FrageBoardController controller = new FrageBoardController();
-        String json = controller.frageBoard();
+        String json = controller.frageBoardToJson();
         assert json.contains("Mathe");
         assert json.contains("Obst");
         assert !controller.getFrageBoard().kategorien().isEmpty();

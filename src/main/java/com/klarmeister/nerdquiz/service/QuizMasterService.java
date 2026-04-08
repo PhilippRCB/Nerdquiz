@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.klarmeister.nerdquiz.controller.FrageBoardController;
 import com.klarmeister.nerdquiz.controller.QuizStateController;
 import com.klarmeister.nerdquiz.controller.TeamController;
 import com.klarmeister.nerdquiz.model.Frage;
+import com.klarmeister.nerdquiz.model.FrageBoard;
 
 @Controller
 public class QuizMasterService {
@@ -101,4 +103,15 @@ public class QuizMasterService {
         return "redirect:/quizMaster/";
     }
 
+    @GetMapping("/quizMaster/upload/")
+    public String goToUploader(Model model) {
+        return "quizUploader";
+    }
+
+    @PostMapping("/quizMaster/upload")
+    public String quizUpload(@RequestParam String quizJson, Model model) {
+        FrageBoard frageBoard = new Gson().fromJson(quizJson, FrageBoard.class);
+        frageBoardController.setFrageBoard(frageBoard);
+        return returnToBoard(model);
+    }
 }
