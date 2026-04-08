@@ -18,6 +18,11 @@ public class BuzzerService {
     @Autowired
     private TeamController teamController;
 
+    @GetMapping("/")
+    public String redirectDefault(Model model) {
+        return buzzer(model);
+    }
+
     @GetMapping("/buzzer/")
     public String buzzer(Model model) {
         model.addAttribute("name", "Gast");
