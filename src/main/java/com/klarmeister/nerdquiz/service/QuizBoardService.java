@@ -17,8 +17,12 @@ public class QuizBoardService {
     @Autowired
     private QuizStateController quizStateController;
     
+    @GetMapping("/quiz")
+    public String quiz(Model model)  {
+        return frageBoard(model);
+    }
 
-    @GetMapping("/quizTabelle/")
+    @GetMapping("/quiz/")
     public String frageBoard(Model model)  {
         switch (quizStateController.getCurrentQuizState()) {
             case FRAGE: return generiereFrageView(model);

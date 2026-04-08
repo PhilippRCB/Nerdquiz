@@ -16,6 +16,11 @@ public class QuizStandingController {
     @Autowired
     private TeamController teamController;
 
+    @GetMapping("/standings/")
+    public String redirectDefault(Model model) {
+        return quizStanding(model);
+    }
+
     @GetMapping("/quizStanding/")
     public String quizStanding(Model model) {
         Map<String, Integer> teams = teamController.getTeams();
