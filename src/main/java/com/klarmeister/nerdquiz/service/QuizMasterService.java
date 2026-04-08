@@ -26,6 +26,11 @@ public class QuizMasterService {
     @Autowired
     private TeamController teamController;
 
+    @GetMapping("/quizMaster")
+    public String redirectDefault(Model model) {
+        return quizMaster(model);
+    }
+
     @GetMapping("/quizMaster/")
     public String quizMaster(Model model) {
         switch (quizStateController.getCurrentQuizState()) {
