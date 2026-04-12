@@ -3,6 +3,7 @@
 <head>
     <title>Quiz</title>
     <link rel="stylesheet" th:href="@{/css/basicStyle.css}" />
+    <meta http-equiv="refresh" content="2">
 </head>
 <body>
     <h1>Quizmaster-Controls</h1>
@@ -20,11 +21,6 @@
                     <button type="submit">Korrekt</button>
                 </form>
             </td>
-            <td>
-                <form action="#" th:action="@{/quizMaster/}" method="get">
-                    <button type="submit">Refresh</button>
-                </form>
-            </td>
         </tr>
         <tr>
             <td>
@@ -32,13 +28,11 @@
                     <button type="submit">Falsch</button>
                 </form>
             </td>
-            <td>
-                <form action="#" th:action="@{/quizMaster/returnToBoard}" method="post">
-                    <button type="submit">Zurück</button>
-                </form>
-            </td>
         </tr>
     </table>
+    <form action="#" th:action="@{/quizMaster/returnToBoard}" method="post">
+        <button type="submit">Zurück</button>
+    </form>
     <br />
 </body>
 </html>
