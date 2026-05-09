@@ -4,12 +4,20 @@
     <title>Quiz</title>
     <link rel="stylesheet" th:href="@{/css/basicStyle.css}" />
     <meta http-equiv="refresh" content="3">
+    <style>
+        .resizable-image { 
+            max-height: 600px;
+            max-width: 600px;
+            display: block;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Nerdquiz</h1>
     <h2 th:text="${frage.frage}"></h2>
     <h3 th:text="*{frage.beantwortet} ? ${frage.antwort} : ''"></h3>
-    <img th:if="${not (frage.bildFrage.isBlank() || frage.beantwortet)}" th:src="@{${frage.bildFrage}}" th:alt-title="${frage.frage}" />
-    <img th:if="${not frage.bildAntwort.isBlank() && frage.beantwortet}" th:src="@{${frage.bildAntwort}}" th:alt-title="${frage.antwort}" />
+    <img th:if="${not (frage.bildFrage.isBlank() || frage.beantwortet)}" th:src="@{${frage.bildFrage}}" th:alt-title="${frage.frage}" class="resizable-image" />
+    <img th:if="${not frage.bildAntwort.isBlank() && frage.beantwortet}" th:src="@{${frage.bildAntwort}}" th:alt-title="${frage.antwort}" class="resizable-image" />
 </body>
 </html>
