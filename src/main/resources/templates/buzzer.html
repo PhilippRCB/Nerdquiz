@@ -7,12 +7,12 @@
 <body>
     <h1>Willkommen zum Quiz!</h1>
     <p th:text="'Buzzer für Team ' + ${name} + '!'"></p>
-
     <form action="#" th:action="@{/buzzer/buzz}" method="post">
         <input type="text" th:disabled="${customUser}" th:hidden="${customUser}" name="teamName" placeholder="Gib deinen Namen ein" required maxlength="25">
         <input type="hidden" th:disabled="${defaultUser}" name="teamName" th:value="${name}" />
         <button id="buzzerButton" type="submit" th:style="'background-color:#444444'">Buzzer</button>
     </form>
+    <p size="8" th:hidden="${customUser}">maximal 20 Zeichen</p>
 
     <script>
         const button = document.getElementById("buzzerButton");
