@@ -22,6 +22,7 @@ public class FrageBoardController {
                                         "antwort":"4",
                                         "bildFrage":"",
                                         "bildAntwort":"",
+                                        "audioFrage":"https://file-examples.com/storage/feffa5efc46aee29ca24b91/2017/11/file_example_MP3_700KB.mp3",
                                         "beantwortet":false
                                     },
                                     {
@@ -30,10 +31,10 @@ public class FrageBoardController {
                                         "antwort":"9",
                                         "bildFrage":"",
                                         "bildAntwort":"",
+                                        "audioFrage":"https://file-examples.com/storage/feffa5efc46aee29ca24b91/2017/11/file_example_MP3_700KB.mp3",
                                         "beantwortet":false
-                                    }   
-                        ]
-                            
+                                    }
+                                ]
                         },
                         {
                             "kategorieName":"Obst",
@@ -45,6 +46,7 @@ public class FrageBoardController {
                                         "antwort":"Rot",
                                         "bildFrage":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.icons8.com%2Fsf-black-filled%2F1200%2Fquestion-mark.jpg&f=1&nofb=1&ipt=c37a5de098202fffb3a653d504b7906691c84bc81d4177adea9e9f72968ef4d9",
                                         "bildAntwort":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.HeNPBZ28l2dAqL1AlQimxwHaE8%3Fpid%3DApi&f=1&ipt=a39ff484612bd3d773a66ba4a5ea4287d765add2ac5587c99e684ab300cacce1&ipo=images",
+                                        "audioFrage":"",
                                         "beantwortet":false
                                     },
                                     {
@@ -53,6 +55,7 @@ public class FrageBoardController {
                                         "antwort":"Gr\u00fcn",
                                         "bildFrage":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.icons8.com%2Fsf-black-filled%2F1200%2Fquestion-mark.jpg&f=1&nofb=1&ipt=c37a5de098202fffb3a653d504b7906691c84bc81d4177adea9e9f72968ef4d9",
                                         "bildAntwort":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.m_UXxJljlUN0L1Mn1kNo-QHaE8%3Fpid%3DApi&f=1&ipt=280322130865a90b75762bbb4d3e54374c50fc16bda8b3beae2a0395bc34f3d7&ipo=images",
+                                        "audioFrage":"",
                                         "beantwortet":false
                                     }
                                 ]
@@ -95,7 +98,7 @@ public class FrageBoardController {
                 }
             }
         }
-        return new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", false);
+        return new Frage(0,"Es ist etws schief gelaufen", "Upps", "", "", "", false);
     }
 
 }

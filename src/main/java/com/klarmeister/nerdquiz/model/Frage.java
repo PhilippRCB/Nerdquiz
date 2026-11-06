@@ -8,16 +8,18 @@ public class Frage {
     private final String antwort;
     private final String bildFrage;
     private final String bildAntwort;
+    private final String audioFrage;
     private boolean beantwortet;
 
-    public record FrageRecord   (int punkte, String frage, String antwort, String bildFrage, String bildAntwort, boolean beantwortet) {}   
+    public record FrageRecord (int punkte, String frage, String antwort, String bildFrage, String bildAntwort, String audioFrage, boolean beantwortet) {}
 
-    public Frage(int punkte, String frage, String antwort, String bildFrage, String bildAntwort, boolean beantwortet) {
+    public Frage(int punkte, String frage, String antwort, String bildFrage, String bildAntwort, String audioFrage, boolean beantwortet) {
         this.punkte = punkte;
         this.frage = frage;
         this.antwort = antwort;
         this.bildFrage = bildFrage;
         this.bildAntwort = bildAntwort;
+        this.audioFrage = audioFrage;
         this.beantwortet = beantwortet;
     }
 
@@ -41,6 +43,10 @@ public class Frage {
         return bildAntwort;
     }
 
+    public String getAudioFrage() {
+        return audioFrage;
+    }
+
     public boolean isBeantwortet() {
         return beantwortet;
     }
@@ -50,6 +56,6 @@ public class Frage {
     }
 
     public FrageRecord toRecord() {
-        return new FrageRecord(punkte, frage, antwort, bildFrage, bildAntwort, beantwortet);
+        return new FrageRecord(punkte, frage, antwort, bildFrage, bildAntwort, audioFrage, beantwortet);
     }
 }

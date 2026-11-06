@@ -10,12 +10,13 @@
     <h3 th:text="*{frage.beantwortet} ? ${frage.antwort} : ''"></h3>
     <img th:if="${not (frage.bildFrage.isBlank() || frage.beantwortet)}" th:src="@{${frage.bildFrage}}" th:alt-title="${frage.frage}" />
     <img th:if="${not frage.bildAntwort.isBlank() && frage.beantwortet}" th:src="@{${frage.bildAntwort}}" th:alt-title="${frage.antwort}" />
+    <audio autoplay loading="eager" controls th:if="${not frage.audioFrage.isBlank()}" th:src="@{${frage.audioFrage}}"></audio>
 </body>
 <script>
     setInterval(refresh, 100);
 
     async function refresh() {
-        const stateUrl = "http://localhost:8080/quizStateChanged/";
+        const stateUrl = "/quizState/";
         const stateResponse = await fetch(stateUrl);
         if (stateResponse.ok) {
             const result = await stateResponse.json();
@@ -24,7 +25,7 @@
                 location.reload();
             }
         }
-        const teamUrl = "http://localhost:8080/teamQueued/";
+        const teamUrl = "/teamQueued/";
         const teamResponse = await fetch(teamUrl);
         if (teamResponse.ok) {
             const result = await teamResponse.json();
