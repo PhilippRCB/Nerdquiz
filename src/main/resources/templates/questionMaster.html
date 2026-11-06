@@ -3,15 +3,12 @@
 <head>
     <title>Quiz</title>
     <link rel="stylesheet" th:href="@{/css/basicStyle.css}" />
-    <meta http-equiv="refresh" content="2">
 </head>
 <body>
     <h1>Quizmaster-Controls</h1>
     <h2 th:text="'Für ' + ${frage.punkte} + ' Punkte'"></h2>
     <h2 th:text="${frage.frage}"></h2>
     <p th:text="'Antwort: ' + ${frage.antwort}"></p>
-    <hr />
-    <p th:text="'Team: ' + ${teamName}"></p>
     <hr />
     <br />
     <table>

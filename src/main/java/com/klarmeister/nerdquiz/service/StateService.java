@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.autoconfigure.JacksonProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
+import java.util.Queue;
 
 @Controller
 public class StateService {
@@ -19,10 +21,10 @@ public class StateService {
     @Autowired
     private TeamController teamController;
 
-    @GetMapping("/buzzerActive/")
+    @GetMapping("/buzzerActive/{teamName}/")
     @ResponseBody
-    public Map<String, Object> buzzerActive(){
-        Boolean active = quizStateController.getCurrentQuizState() == QuizState.FRAGE;
+    public Map<String, Object> buzzerActive(@PathVariable String teamName){
+        Boolean active = quizStateController.getCurrentQuizState() == QuizState.FRAGE && !teamController.getBuzzedTeams().contains(teamName);
         return Map.of("active", active);
     }
 
