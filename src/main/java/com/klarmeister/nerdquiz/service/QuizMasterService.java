@@ -82,7 +82,7 @@ public class QuizMasterService {
         if (!frage.isBeantwortet()) {
             String teamName = teamController.getBuzzedTeams().poll();
             if (teamName != null) {
-                teamController.addPunkte(teamName, frage.getPunkte() * -1);
+                teamController.addPunkte(teamName, -100);
             }
         }
         model.addAttribute("kategorieName", quizStateController.getQuizStateMachine().kategorieName());
