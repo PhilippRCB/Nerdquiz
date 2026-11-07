@@ -33,20 +33,16 @@ public class QuizMasterService {
 
     @GetMapping("/quizMaster/")
     public String quizMaster(Model model) {
-        switch (quizStateController.getCurrentQuizState()) {
-            case FRAGE: 
-                String teamName = teamController.getBuzzedTeams().peek();
-                if (teamName == null) {
-                    teamName = "";
-                }
-                model.addAttribute("teamName", teamName);
+        return switch (quizStateController.getCurrentQuizState()) {
+            case FRAGE -> {
                 model.addAttribute("frage", quizStateController.getCurrentFrage());
-                return "questionMaster";
-            case BOARD:
-            default:
+                yield "questionMaster";
+            }
+            default -> {
                 model.addAttribute("kategorien", frageBoardController.getFrageBoard().kategorien());
-                return "tabelleMaster";
-        }
+                yield "tabelleMaster";
+            }
+        };
     }
 
 
@@ -56,14 +52,13 @@ public class QuizMasterService {
         teamController.getBuzzedTeams().clear();
         if (frage.isBeantwortet()) {
             model.addAttribute("kategorien", frageBoardController.getFrageBoard().kategorien());
-            return "redirect:/quizMaster/";
         }
         else{
             model.addAttribute("kategorieName", kategorieName);
             model.addAttribute("frage", frage);
             quizStateController.selectFrage(kategorieName, frage);
-            return "redirect:/quizMaster/";
         }
+        return "redirect:/quizMaster/";
     }
 
     @PostMapping("/quizMaster/right")
@@ -103,7 +98,7 @@ public class QuizMasterService {
         try (FileOutputStream outputStream = new FileOutputStream(quizFile, false)) {
             outputStream.write(teamController.getTeamStand().getBytes());
         } catch (Exception e) {
-            System.out.println(String.format("Fehler beim Schreiben der Punktestandsdatei: %s", quizFile.getAbsolutePath()));
+            System.out.printf("Fehler beim Schreiben der Punktestandsdatei: %s%n", quizFile.getAbsolutePath());
         }
         return "redirect:/quizMaster/";
     }

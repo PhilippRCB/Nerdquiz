@@ -17,13 +17,13 @@ public class FrageBoardControllerTest {
     @BeforeEach
     public void setup() {
         FrageKategorie kategorie1 = new FrageKategorie("Mathematik",List.of( 
-                new Frage(100, "Was ist 2+2?", "4", "", "", false),
-                new Frage(200,"Was ist 3x3?", "9",  "", "", false)
+                new Frage(100, "Was ist 2+2?", "4", "", "", "", false),
+                new Frage(200,"Was ist 3x3?", "9",  "","", "", false)
         ));
 
         FrageKategorie kategorie2 = new FrageKategorie("Früchte", List.of(
-                new Frage(100, "Welche Farbe hat ein Apfel?", "Rot", "", "", false),
-                new Frage(200, "Welche Farbe hat eine Birne?", "Grün", "", "", false)
+                new Frage(100, "Welche Farbe hat ein Apfel?", "Rot", "", "","", false),
+                new Frage(200, "Welche Farbe hat eine Birne?", "Grün", "", "","", false)
         ) );
 
         frageBoard.kategorien().add(kategorie1);

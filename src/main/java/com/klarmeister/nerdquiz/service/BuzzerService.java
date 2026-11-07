@@ -1,6 +1,8 @@
 package com.klarmeister.nerdquiz.service;
 
+import java.lang.reflect.Parameter;
 import java.util.Queue;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,8 @@ public class BuzzerService {
     @Autowired
     private TeamController teamController;
 
+    private static final Pattern teamNameRegex = Pattern.compile("\\w{1,20}");
+
     @GetMapping("/")
     public String redirectDefault(Model model) {
         return buzzer(model);
@@ -33,10 +37,13 @@ public class BuzzerService {
 
     @GetMapping("/buzzer/{teamName}/")
     public String buzzer(@PathVariable String teamName, Model model) {
-        model.addAttribute("name", teamName);
-        model.addAttribute("customUser", true);
-        model.addAttribute("defaultUser", false);
-        return "buzzer";
+        if (teamNameRegex.matcher(teamName).matches()){
+            model.addAttribute("name", teamName);
+            model.addAttribute("customUser", true);
+            model.addAttribute("defaultUser", false);
+            return "buzzer";
+        }
+        return "redirect:/buzzer/";
     }
 
     @PostMapping("/buzzer/buzz")

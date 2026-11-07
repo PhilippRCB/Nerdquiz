@@ -1,5 +1,6 @@
 package com.klarmeister.nerdquiz.service;
 
+import com.klarmeister.nerdquiz.controller.TeamController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ public class QuizBoardService {
     private FrageBoardController frageBoardController;
     @Autowired
     private QuizStateController quizStateController;
+    @Autowired
+    private TeamController teamController;
     
     @GetMapping("/quiz")
     public String quiz(Model model)  {
@@ -25,10 +28,20 @@ public class QuizBoardService {
     @GetMapping("/quiz/")
     public String frageBoard(Model model)  {
         switch (quizStateController.getCurrentQuizState()) {
-            case FRAGE: return generiereFrageView(model);
+            case FRAGE:
+                String teamName = teamController.getBuzzedTeams().peek();
+                if (teamName == null) {
+                    return generiereFrageView(model);
+                } 
+                return generiereAntwortView(model, teamName);
             case BOARD: 
             default: return generiereQuizTabelleView(model);
         }
+    }
+
+    private String generiereAntwortView(Model model, String teamName) {
+        model.addAttribute("teamName", teamName);
+        return "antwort";
     }
 
     private String generiereFrageView(Model model) {
